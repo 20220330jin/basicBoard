@@ -23,6 +23,10 @@
         </tr>
       </table>
     </div>
+    <!-- 버튼 부분 -->
+    <div>
+      <button @click="writeBoardBind">글 쓰기</button>
+    </div>
   </div>
 </template>
 
@@ -68,6 +72,9 @@ export default {
           console.log(err);
         })
         .finally();
+    },
+    writeBoardBind: function () {
+      alert("기능 구현중");
     },
   },
 };
