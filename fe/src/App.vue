@@ -1,18 +1,22 @@
 <template>
   <div>
-    <BoardMain></BoardMain>
+    <Header></Header>
+    <!-- <BoardMain></BoardMain> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import BoardMain from '@/components/board/BoardMain.vue'
+// import BoardMain from "@/components/board/BoardMain.vue";
+import Header from '@/components/Header.vue'
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    BoardMain,
-  }
-}
+    Header,
+    // BoardMain,
+  },
+};
 </script>
 
 <style>

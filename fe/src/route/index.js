@@ -8,6 +8,16 @@ const routes = [
         path: '/',
         name: 'BoardMain',
         component: () => import('@/components/board/BoardMain.vue')
+    },
+    {
+        path: '/detail/:boardId',
+        name: 'BoardInfo',
+        component: () => import('@/components/board/BoardInfo.vue')
+    },
+    {
+        path: '/boardWrite',
+        name: 'BoardForm',
+        component: () => import('@/components/board/BoardForm.vue')
     }
 ];
 
