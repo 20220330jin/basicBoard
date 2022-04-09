@@ -16,7 +16,7 @@ export default {
     boardInfoParam: {
       boardId: 0,
       title: "",
-      contenst: "",
+      content: "",
     },
   }),
   created() {
