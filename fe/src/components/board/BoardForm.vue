@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: "BoardForm",
   data: () => ({
@@ -34,7 +35,20 @@ export default {
   }),
   methods: {
     boardWrite: function () {
-      alert("아직 기능 구현 중입니다.");
+      // INSERT 관련 요청은 POST방식을 쓴다
+      axios.post('http://localhost:8090/board/boardWrite', this.boardWriteParam)
+        .then(result => {
+          console.log(result);
+          // 쓰기 요청이 완료된 뒤 다시 글 목록으로 이동한다
+          // 단순 이동이기 때문에 따로 parameter는 보내지 않는다.
+          this.$router.push({
+            name: 'BoardMain'
+          })
+        })
+        .catch(err => {
+          console.log(err);
+        })
+        .finally(() => {})
     },
   },
 };
