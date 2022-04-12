@@ -5,6 +5,9 @@
       <div>제목: {{ boardInfoParam.title }}</div>
       <div>내용: {{ boardInfoParam.content }}</div>
     </div>
+    <div>
+      <button @click="boardUpdateBind">수정하기</button>
+    </div>
   </div>
 </template>
 
@@ -60,6 +63,20 @@ export default {
           console.log(err);
         })
         .finally();
+    },
+    // 글 수정 페이지 이동기능
+    // '특정' id 값을 가진 글을 수정하기 위한 페이지로 이동
+    // 따라서 id값을 이동시에 parameter로 보내줘야한다.
+    // 이미 list에서 info로 올 때 넘겨줬던 id값을 boardInfoParam 안의 id에 세팅해줬기 때문에 해당 값을 그대로 보내보자
+    boardUpdateBind: function () {
+      // id 확인 -> 확인 결과 현재 글의 id 값이 맞다면 parameter로 보낸다
+      console.log(this.boardInfoParam.boardId);
+      this.$router.push({
+        name: "BoardUpdate",
+        params: {
+          boardId: this.boardInfoParam.boardId,
+        },
+      });
     },
   },
 };

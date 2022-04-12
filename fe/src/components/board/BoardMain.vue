@@ -20,7 +20,7 @@
         <!-- 상세로 이동하기 위한 메서드 호출: 호출시 해당 글의 id값을 같이 보낸다. -->
         <tr v-for="(board, index) in boardList" :key="index">
           <td>{{ index + 1 }}</td>
-          <td @click="boardInfoBind(board.boardId)">{{ board.title }}</td>
+          <td style="cursor: pointer" @click="boardInfoBind(board.boardId)">{{ board.title }}</td>
           <td></td>
         </tr>
       </table>

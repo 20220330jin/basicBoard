@@ -18,6 +18,11 @@ const routes = [
         path: '/boardWrite',
         name: 'BoardForm',
         component: () => import('@/components/board/BoardForm.vue')
+    },
+    {
+        path: '/boardUpdate/:boardId',
+        name: 'BoardUpdate',
+        component: () => import('@/components/board/BoardUpdate.vue')
     }
 ];
 
