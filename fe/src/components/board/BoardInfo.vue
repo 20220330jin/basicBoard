@@ -6,7 +6,12 @@
       <div>내용: {{ boardInfoParam.content }}</div>
     </div>
     <div>
-      <button @click="boardUpdateBind">수정하기</button>
+      <span>
+        <button @click="boardUpdateBind">수정하기</button>
+      </span>
+      <span>
+        <button @click="boardDelete">삭제하기</button>
+      </span>
     </div>
   </div>
 </template>
@@ -21,6 +26,9 @@ export default {
       title: "",
       content: "",
     },
+    boardDeleteParam: {
+      boardId: 0
+    }
   }),
   created() {
     // vue life-cycle: created()
@@ -63,6 +71,23 @@ export default {
           console.log(err);
         })
         .finally();
+    },
+    // 글 삭제 기능
+    boardDelete: function () {
+      let deleteCheck = confirm("정말로 삭제하시겠습니까?");
+      if (deleteCheck === false) {
+        return;
+      }
+      this.boardDeleteParam.boardId = this.$route.params.boardId;
+      axios
+        .put('http://localhost:8090/board/detail', this.boardDeleteParam)
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {});
     },
     // 글 수정 페이지 이동기능
     // '특정' id 값을 가진 글을 수정하기 위한 페이지로 이동
