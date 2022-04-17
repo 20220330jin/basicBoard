@@ -80,9 +80,12 @@ export default {
       }
       this.boardDeleteParam.boardId = this.$route.params.boardId;
       axios
-        .put('http://localhost:8090/board/detail', this.boardDeleteParam)
+        .put('http://localhost:8090/board/boardDelete', this.boardDeleteParam)
         .then((result) => {
           console.log(result);
+          this.$router.push({
+            name: 'BoardMain'
+          })
         })
         .catch((err) => {
           console.log(err);
